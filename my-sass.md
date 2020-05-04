@@ -1,6 +1,6 @@
 # My refence for Sass
 
-```css
+```scss
 @import 'abstracts/variables',
         'abstracts/mixin',
 
@@ -15,7 +15,9 @@
         'layout/footer';
 ```
 
-```css
+- flexbox
+
+```scss
 @mixin flexCenter($direction){
   display: flex;
   justify-content: center;
@@ -23,10 +25,15 @@
   flex-direction: $direction;
 }
 
+```
+
+```scss
 @include flexCenter(column);
 ```
 
-```css
+- media queries
+
+```scss
 @mixin media-md {
   @media screen and (min-width: 768px) {
     @content;
@@ -37,4 +44,20 @@
     @content;
   }
 }
+```
+
+- set text color
+
+```scss
+@function set-text-color($color) {
+  @if (lightness($color) > 50) {
+    @return #000;
+  } else {
+    @return #fff;
+  }
+}
+```
+
+```css
+color: set-text-color($dark-color);
 ```
